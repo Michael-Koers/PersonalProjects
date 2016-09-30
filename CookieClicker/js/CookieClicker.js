@@ -18,6 +18,8 @@ Game.init = function () {
 
     var upgrade1 = document.getElementById("upgrade1");
     upgrade1.addEventListener("click", clickUpgrade1);
+    upgrade1.addEventListener("mouseover", showUpgradeInfo);
+    upgrade1.addEventListener("mouseout", hideUpgradeInfo);
 };
 
 Game.launch = function () {
@@ -54,7 +56,7 @@ Game.updateCookieCounter = function () {
     var counter = document.getElementById("cookieCounter");
     counter.innerHTML = Math.floor(Game.cookies);
     var cps = document.getElementById("cookiePerSecond");
-    cps.innerHTML = Math.floor(Game.upgrade1 * Upgrade1.cookiesPerSecond * 100)/100;
+    cps.innerHTML = Math.floor(Game.upgrade1 * Upgrade1.cookiesPerSecond * 100) / 100;
 };
 
 Game.calculateCPS = function () {
@@ -73,20 +75,34 @@ function clickUpgrade1() {
         Game.upgrade1++;
         upgrade1Counter.innerHTML = Game.upgrade1;
     }
-    else{
+    else {
         var warning = document.createElement("li");
         var list = document.getElementById("upgradeList");
         warning.style.color = "red";
         warning.setAttribute("id", "upgrade1warning");
         warning.innerHTML = "You need " + Upgrade1.cost + " cookies for this upgrade";
         list.appendChild(warning);
-        setTimeout(function(){
+        setTimeout(function () {
             var warning = document.getElementById("upgrade1warning");
             var list = document.getElementById("upgradeList");
             list.removeChild(warning);
         }, 3000);
 
     }
+}
+
+function showUpgradeInfo() {
+    var listItem = document.getElementById("upgrade1");
+    var upgradeInfo = document.createElement("li");
+    upgradeInfo.id = "upgrade1info";
+    upgradeInfo.innerHTML = "Cost: 10, CPS: +0.1";
+    listItem.appendChild(upgradeInfo);
+}
+
+function hideUpgradeInfo() {
+    var upgradeInfo = document.getElementById("upgrade1info");
+    var listItem = document.getElementById("upgrade1");
+    listItem.removeChild(upgradeInfo);
 }
 
 

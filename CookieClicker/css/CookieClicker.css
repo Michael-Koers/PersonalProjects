@@ -1,0 +1,54 @@
+#coockieScreen {
+    display: block;
+}
+
+#cookie {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+#cookieImg {
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    border-radius: 50%;
+}
+
+#cookieImg:active {
+    transform: translateY(4px);
+}
+
+.halfscreen {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+}
+
+#cookieCounter {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: green;
+}
+
+#upgradeList li span {
+    cursor: pointer;
+}
+
+#upgradeList li {
+    list-style: none;
+}
+
+.noSelect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                          not supported by any browser */
+}
